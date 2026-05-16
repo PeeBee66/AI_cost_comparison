@@ -191,9 +191,10 @@ SSH_HOST=my-server ./deploy.sh
 ```
 
 Optional overrides:
-- `SSH_KEY` — defaults to `~/.ssh/id_ed25519`
 - `REMOTE_DIR` — defaults to `/srv/cost-dashboard`
 - `APP_PORT` — defaults to `8556`
+
+Key selection is handled by your ssh-agent or `~/.ssh/config`. No key path env var is needed.
 
 ---
 

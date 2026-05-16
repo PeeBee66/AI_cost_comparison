@@ -219,7 +219,7 @@ The `data/` directory is bind-mounted from the host. The SQLite DB lives at `dat
 
 ## License
 
-MIT.
+GPL-3.0 — see [LICENSE](LICENSE).
 
 ---
 

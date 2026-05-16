@@ -1,0 +1,19 @@
+.env
+.env.local
+
+# Claude Code project-local settings (per-machine permissions)
+.claude/
+
+# Proton Drive name-clash artifacts
+*(# Name clash *#)*
+*.pyc
+__pycache__/
+*.egg-info/
+.venv/
+venv/
+data/*.db
+data/*.db-journal
+data/backups/
+.DS_Store
+.idea/
+.vscode/

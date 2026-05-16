@@ -1,0 +1,1149 @@
+# Source of truth for known model prices. Edit by hand when providers change rates.
+# Refreshes will load this file as 'seed' source, then scrapers/discovery layer on top.
+# Prices are USD. Use null for fields that don't apply.
+#
+# quality: subjective 1-5 (5 = frontier SOTA in this category)
+# tier:    Frontier | Strong | Value | Niche | Legacy
+
+models:
+  # ================================================================
+  # CHAT / CODE
+  # ================================================================
+  - slug: anthropic/claude-opus-4-7
+    provider: Anthropic
+    name: Claude Opus 4.7
+    category: chat
+    quality: 5
+    tier: Frontier
+    released_at: 2026-Q1
+    homepage_url: https://www.anthropic.com/claude
+    pricing_url: https://www.anthropic.com/pricing
+    buy_url: https://console.anthropic.com/settings/billing
+    buy_label: API console
+    notes: Flagship reasoning, agentic coding, 1M context
+    api: { input_per_mtok: 15.00, output_per_mtok: 75.00 }
+    subscription: { plan: Claude Max, usd_month: 100.00, units: "Heavy usage, no API cost" }
+
+  - slug: anthropic/claude-sonnet-4-6
+    provider: Anthropic
+    name: Claude Sonnet 4.6
+    category: chat
+    quality: 5
+    tier: Frontier
+    released_at: 2025-Q4
+    pricing_url: https://www.anthropic.com/pricing
+    buy_url: https://console.anthropic.com/settings/billing
+    buy_label: API console
+    notes: Workhorse, best speed/quality ratio
+    api: { input_per_mtok: 3.00, output_per_mtok: 15.00 }
+    subscription: { plan: Claude Pro, usd_month: 20.00, units: "~45 msgs / 5h" }
+
+  - slug: anthropic/claude-haiku-4-5
+    provider: Anthropic
+    name: Claude Haiku 4.5
+    category: chat
+    quality: 4
+    tier: Value
+    pricing_url: https://www.anthropic.com/pricing
+    buy_url: https://console.anthropic.com/settings/billing
+    buy_label: API console
+    notes: Fast and cheap, good agentic
+    api: { input_per_mtok: 1.00, output_per_mtok: 5.00 }
+
+  - slug: openai/gpt-5
+    provider: OpenAI
+    name: GPT-5
+    category: chat
+    quality: 5
+    tier: Frontier
+    released_at: 2025-Q3
+    pricing_url: https://openai.com/api/pricing/
+    buy_url: https://platform.openai.com/settings/organization/billing
+    buy_label: API console
+    api: { input_per_mtok: 2.50, output_per_mtok: 10.00 }
+    subscription: { plan: ChatGPT Plus, usd_month: 20.00, units: "80 msgs / 3h" }
+
+  - slug: openai/gpt-5-mini
+    provider: OpenAI
+    name: GPT-5 Mini
+    category: chat
+    quality: 4
+    tier: Value
+    pricing_url: https://openai.com/api/pricing/
+    api: { input_per_mtok: 0.15, output_per_mtok: 0.60 }
+
+  - slug: openai/gpt-5-nano
+    provider: OpenAI
+    name: GPT-5 Nano
+    category: chat
+    quality: 3
+    tier: Value
+    pricing_url: https://openai.com/api/pricing/
+    notes: Ultra-cheap, edge/classification use
+    api: { input_per_mtok: 0.05, output_per_mtok: 0.40 }
+
+  - slug: openai/o3
+    provider: OpenAI
+    name: o3 (reasoning)
+    category: chat
+    quality: 5
+    tier: Frontier
+    pricing_url: https://openai.com/api/pricing/
+    notes: Strong math / long-horizon reasoning
+    api: { input_per_mtok: 10.00, output_per_mtok: 40.00 }
+    subscription: { plan: ChatGPT Pro, usd_month: 200.00, units: "Unlimited o-series + Sora" }
+
+  - slug: openai/o4-mini
+    provider: OpenAI
+    name: o4-mini (reasoning)
+    category: chat
+    quality: 4
+    tier: Strong
+    pricing_url: https://openai.com/api/pricing/
+    api: { input_per_mtok: 1.10, output_per_mtok: 4.40 }
+
+  - slug: google/gemini-2-5-pro
+    provider: Google
+    name: Gemini 2.5 Pro
+    category: chat
+    quality: 5
+    tier: Frontier
+    pricing_url: https://ai.google.dev/pricing
+    buy_url: https://aistudio.google.com/app/apikey
+    buy_label: AI Studio
+    notes: 2M context, strong multimodal
+    api: { input_per_mtok: 1.25, output_per_mtok: 10.00 }
+    subscription: { plan: Gemini Advanced, usd_month: 19.99, units: "2 TB Drive included" }
+
+  - slug: google/gemini-2-5-flash
+    provider: Google
+    name: Gemini 2.5 Flash
+    category: chat
+    quality: 4
+    tier: Value
+    pricing_url: https://ai.google.dev/pricing
+    api: { input_per_mtok: 0.075, output_per_mtok: 0.30 }
+
+  - slug: google/gemini-2-5-flash-lite
+    provider: Google
+    name: Gemini 2.5 Flash-Lite
+    category: chat
+    quality: 3
+    tier: Value
+    pricing_url: https://ai.google.dev/pricing
+    api: { input_per_mtok: 0.01, output_per_mtok: 0.04 }
+
+  - slug: xai/grok-4
+    provider: xAI
+    name: Grok 4
+    category: chat
+    quality: 4
+    tier: Strong
+    pricing_url: https://x.ai/api
+    api: { input_per_mtok: 5.00, output_per_mtok: 15.00 }
+    subscription: { plan: X Premium+, usd_month: 16.00, units: "Grok in X app" }
+
+  - slug: xai/grok-4-mini
+    provider: xAI
+    name: Grok 4 Mini
+    category: chat
+    quality: 3
+    tier: Value
+    pricing_url: https://x.ai/api
+    api: { input_per_mtok: 0.30, output_per_mtok: 1.50 }
+
+  - slug: deepseek/deepseek-v3
+    provider: DeepSeek
+    name: DeepSeek V3
+    category: chat
+    quality: 4
+    tier: Value
+    pricing_url: https://api-docs.deepseek.com/quick_start/pricing
+    notes: Cheapest serious chat model
+    api: { input_per_mtok: 0.27, output_per_mtok: 1.10 }
+
+  - slug: deepseek/deepseek-r1
+    provider: DeepSeek
+    name: DeepSeek R1 (reasoning)
+    category: chat
+    quality: 4
+    tier: Value
+    pricing_url: https://api-docs.deepseek.com/quick_start/pricing
+    notes: Open-weight reasoning model
+    api: { input_per_mtok: 0.55, output_per_mtok: 2.19 }
+
+  - slug: meta/llama-4-maverick
+    provider: Meta
+    name: Llama 4 Maverick
+    category: chat
+    quality: 4
+    tier: Strong
+    pricing_url: https://www.llama.com/docs
+    notes: 17B active / 400B total MoE, open weights
+    api: { input_per_mtok: 0.27, output_per_mtok: 0.85 }
+
+  - slug: meta/llama-4-scout
+    provider: Meta
+    name: Llama 4 Scout
+    category: chat
+    quality: 3
+    tier: Value
+    pricing_url: https://www.llama.com/docs
+    notes: Smaller MoE, very long context
+    api: { input_per_mtok: 0.11, output_per_mtok: 0.34 }
+
+  - slug: mistral/mistral-large-3
+    provider: Mistral
+    name: Mistral Large 3
+    category: chat
+    quality: 4
+    tier: Strong
+    pricing_url: https://mistral.ai/pricing
+    api: { input_per_mtok: 2.00, output_per_mtok: 6.00 }
+
+  - slug: mistral/mistral-medium-3
+    provider: Mistral
+    name: Mistral Medium 3
+    category: chat
+    quality: 3
+    tier: Value
+    pricing_url: https://mistral.ai/pricing
+    api: { input_per_mtok: 0.40, output_per_mtok: 2.00 }
+
+  - slug: alibaba/qwen-3-max
+    provider: Alibaba
+    name: Qwen 3 Max
+    category: chat
+    quality: 4
+    tier: Strong
+    pricing_url: https://www.alibabacloud.com/help/en/model-studio/getting-started/models
+    notes: Strong on Chinese + code
+    api: { input_per_mtok: 1.20, output_per_mtok: 6.00 }
+
+  - slug: alibaba/qwen-3-coder
+    provider: Alibaba
+    name: Qwen 3 Coder
+    category: chat
+    quality: 4
+    tier: Strong
+    pricing_url: https://www.alibabacloud.com/help/en/model-studio/getting-started/models
+    notes: Specialised for code
+    api: { input_per_mtok: 1.00, output_per_mtok: 5.00 }
+
+  - slug: cohere/command-a
+    provider: Cohere
+    name: Command A
+    category: chat
+    quality: 3
+    tier: Niche
+    pricing_url: https://cohere.com/pricing
+    notes: Enterprise / RAG focus
+    api: { input_per_mtok: 2.50, output_per_mtok: 10.00 }
+
+  - slug: moonshot/kimi-k2
+    provider: Moonshot
+    name: Kimi K2
+    category: chat
+    quality: 4
+    tier: Value
+    pricing_url: https://platform.moonshot.ai/docs/pricing
+    notes: Open-weight 1T MoE
+    api: { input_per_mtok: 0.60, output_per_mtok: 2.50 }
+
+  - slug: zhipu/glm-4-5
+    provider: Zhipu
+    name: GLM-4.5
+    category: chat
+    quality: 3
+    tier: Value
+    pricing_url: https://bigmodel.cn/pricing
+    api: { input_per_mtok: 0.50, output_per_mtok: 2.00 }
+
+  # ================================================================
+  # IMAGE
+  # ================================================================
+  - slug: openai/gpt-image-1
+    provider: OpenAI
+    name: GPT-Image-1
+    category: image
+    quality: 5
+    tier: Frontier
+    pricing_url: https://openai.com/api/pricing/
+    notes: Text rendering + edits SOTA
+    api: { per_image_usd: 0.070 }
+
+  - slug: openai/dall-e-3
+    provider: OpenAI
+    name: DALL-E 3
+    category: image
+    quality: 3
+    tier: Legacy
+    pricing_url: https://openai.com/api/pricing/
+    notes: Superseded by GPT-Image-1
+    api: { per_image_usd: 0.040 }
+
+  - slug: google/imagen-4
+    provider: Google
+    name: Imagen 4
+    category: image
+    quality: 5
+    tier: Frontier
+    pricing_url: https://ai.google.dev/pricing
+    api: { per_image_usd: 0.040 }
+
+  - slug: google/nano-banana
+    provider: Google
+    name: Nano-Banana (Gemini 2.5 Flash Image)
+    category: image
+    quality: 4
+    tier: Strong
+    pricing_url: https://ai.google.dev/pricing
+    notes: Conversational edit/gen, cheap
+    api: { per_image_usd: 0.039 }
+
+  - slug: bfl/flux-pro-1-1
+    provider: Black Forest Labs
+    name: FLUX 1.1 Pro
+    category: image
+    quality: 4
+    tier: Strong
+    pricing_url: https://replicate.com/black-forest-labs/flux-1.1-pro
+    api: { per_image_usd: 0.040 }
+
+  - slug: bfl/flux-1-1-pro-ultra
+    provider: Black Forest Labs
+    name: FLUX 1.1 Pro Ultra
+    category: image
+    quality: 5
+    tier: Frontier
+    pricing_url: https://replicate.com/black-forest-labs/flux-1.1-pro-ultra
+    notes: 4MP native output
+    api: { per_image_usd: 0.060 }
+
+  - slug: bfl/flux-schnell
+    provider: Black Forest Labs
+    name: FLUX Schnell
+    category: image
+    quality: 3
+    tier: Value
+    pricing_url: https://replicate.com/black-forest-labs/flux-schnell
+    notes: 4-step fast model
+    api: { per_image_usd: 0.003 }
+
+  - slug: bfl/flux-kontext-pro
+    provider: Black Forest Labs
+    name: FLUX Kontext Pro
+    category: image
+    quality: 4
+    tier: Strong
+    pricing_url: https://replicate.com/black-forest-labs/flux-kontext-pro
+    notes: In-context image editing
+    api: { per_image_usd: 0.040 }
+
+  - slug: midjourney/v7
+    provider: Midjourney
+    name: Midjourney v7
+    category: image
+    quality: 5
+    tier: Frontier
+    pricing_url: https://www.midjourney.com/account
+    buy_url: https://www.midjourney.com/account
+    buy_label: Subscribe
+    notes: "Subscription only — no official API. Wrappers exist via 3rd parties."
+    subscription: { plan: Basic, usd_month: 10.00, units: "~200 images/mo" }
+    third_party_apis:
+      - { provider: ImagineAPI.dev,    url: https://www.imagineapi.dev/,    per_image_usd: 0.040, kind: wrapper, notes: "Bring-your-own Discord account; routes through your sub" }
+      - { provider: UserAPI.ai (MJ),   url: https://userapi.ai/pricing,     per_image_usd: 0.025, kind: wrapper, notes: "Account-pool wrapper" }
+      - { provider: PiAPI Midjourney,  url: https://piapi.ai/midjourney-api,per_image_usd: 0.045, kind: wrapper, notes: "Reverse-engineered" }
+      - { provider: GoAPI Midjourney,  url: https://goapi.ai/midjourney-api,per_image_usd: 0.040, kind: wrapper, notes: "Reverse-engineered" }
+      - { provider: ApiFrame,          url: https://apiframe.pro/,          per_image_usd: 0.040, kind: wrapper, notes: "Reverse-engineered" }
+
+  - slug: midjourney/v7-pro
+    provider: Midjourney
+    name: Midjourney v7 (Pro)
+    category: image
+    quality: 5
+    tier: Frontier
+    pricing_url: https://www.midjourney.com/account
+    buy_url: https://www.midjourney.com/account
+    buy_label: Subscribe
+    notes: "Subscription only — no official API"
+    subscription: { plan: Pro, usd_month: 60.00, units: "Unlimited relaxed" }
+
+  - slug: ideogram/v3
+    provider: Ideogram
+    name: Ideogram 3.0
+    category: image
+    quality: 4
+    tier: Strong
+    pricing_url: https://ideogram.ai/manage-subscription
+    notes: Best-in-class text in images
+    api: { per_image_usd: 0.080 }
+    subscription: { plan: Basic, usd_month: 8.00, units: "400 priority/mo" }
+
+  - slug: recraft/v3
+    provider: Recraft
+    name: Recraft V3
+    category: image
+    quality: 4
+    tier: Strong
+    pricing_url: https://www.recraft.ai/pricing
+    notes: Vector + brand-style design
+    api: { per_image_usd: 0.040 }
+    subscription: { plan: Basic, usd_month: 12.00, units: "1,000 credits/mo" }
+
+  - slug: adobe/firefly-image-3
+    provider: Adobe
+    name: Firefly Image 3
+    category: image
+    quality: 3
+    tier: Strong
+    pricing_url: https://www.adobe.com/products/firefly/plans.html
+    notes: Commercially safe, bundled with CC
+    subscription: { plan: Firefly Standard, usd_month: 9.99, units: "2,000 credits/mo" }
+
+  - slug: leonardo/phoenix-1-0
+    provider: Leonardo
+    name: Leonardo Phoenix 1.0
+    category: image
+    quality: 3
+    tier: Niche
+    pricing_url: https://leonardo.ai/pricing/
+    subscription: { plan: Apprentice, usd_month: 12.00, units: "8,500 tokens/mo" }
+
+  - slug: stability/sd-3-5-large
+    provider: Stability AI
+    name: Stable Diffusion 3.5 Large
+    category: image
+    quality: 3
+    tier: Value
+    pricing_url: https://platform.stability.ai/pricing
+    notes: Open weights, self-hostable
+    api: { per_image_usd: 0.065 }
+
+  - slug: reve/image-1-0
+    provider: Reve
+    name: Reve Image 1.0
+    category: image
+    quality: 4
+    tier: Strong
+    pricing_url: https://reve.art/pricing
+    notes: New entrant; strong prompt adherence
+    api: { per_image_usd: 0.030 }
+
+  - slug: hidream/i1-dev
+    provider: HiDream
+    name: HiDream-I1 Dev
+    category: image
+    quality: 3
+    tier: Niche
+    pricing_url: https://replicate.com/prunaai/hidream-l1-dev
+    notes: Open weights, strong style range
+    api: { per_image_usd: 0.030 }
+
+  - slug: bytedance/seedream-4
+    provider: ByteDance
+    name: Seedream 4.0
+    category: image
+    quality: 5
+    tier: Frontier
+    released_at: 2026-Q1
+    pricing_url: https://replicate.com/bytedance/seedream-4
+    buy_url: https://replicate.com/bytedance/seedream-4
+    buy_label: Replicate API
+    notes: Strong text rendering + photoreal; 4K native
+    api: { per_image_usd: 0.030 }
+
+  - slug: bytedance/seedream-3
+    provider: ByteDance
+    name: Seedream 3.0
+    category: image
+    quality: 4
+    tier: Strong
+    pricing_url: https://replicate.com/bytedance/seedream-3
+    buy_url: https://replicate.com/bytedance/seedream-3
+    buy_label: Replicate API
+    notes: Previous Seedream tier, still competitive
+    api: { per_image_usd: 0.020 }
+
+  # ================================================================
+  # VIDEO (short, ≤5 sec)
+  # ================================================================
+  - slug: google/veo-3
+    provider: Google
+    name: Veo 3
+    category: video_short
+    quality: 5
+    tier: Frontier
+    pricing_url: https://ai.google.dev/pricing
+    buy_url: https://aistudio.google.com/app/apikey
+    buy_label: AI Studio
+    notes: 5s @ 720p with synced audio
+    api: { per_5s_video_usd: 1.75 }
+    third_party_apis:
+      - { provider: fal.ai Veo 3,     url: https://fal.ai/models/fal-ai/veo3,           per_5s_video_usd: 2.00, kind: partner, notes: "Hosted partner; pay-per-call" }
+      - { provider: Replicate Veo 3,  url: https://replicate.com/google/veo-3,          per_5s_video_usd: 2.00, kind: partner, notes: "Hosted partner; pay-per-call" }
+      - { provider: PiAPI Veo 3,      url: https://piapi.ai/veo-api,                    per_5s_video_usd: 2.10, kind: wrapper, notes: "Aggregator wrapper" }
+
+  - slug: openai/sora-2
+    provider: OpenAI
+    name: Sora 2
+    category: video_short
+    quality: 5
+    tier: Frontier
+    pricing_url: https://openai.com/sora
+    buy_url: https://platform.openai.com/settings/organization/billing
+    buy_label: API console
+    notes: Physics-aware, native audio
+    api: { per_5s_video_usd: 0.50 }
+    subscription: { plan: ChatGPT Plus, usd_month: 20.00, units: "Limited Sora gens" }
+    third_party_apis:
+      - { provider: fal.ai Sora 2,    url: https://fal.ai/models/fal-ai/sora-2,         per_5s_video_usd: 0.55, kind: partner, notes: "Hosted relay" }
+      - { provider: Replicate Sora 2, url: https://replicate.com/openai/sora-2,         per_5s_video_usd: 0.55, kind: partner, notes: "Hosted relay" }
+      - { provider: PiAPI Sora,       url: https://piapi.ai/sora-api,                   per_5s_video_usd: 0.60, kind: wrapper, notes: "Account-pool wrapper" }
+      - { provider: GoAPI Sora,       url: https://goapi.ai/sora-api,                   per_5s_video_usd: 0.55, kind: wrapper, notes: "Account-pool wrapper" }
+
+  - slug: runway/gen-4
+    provider: Runway
+    name: Runway Gen-4
+    category: video_short
+    quality: 4
+    tier: Strong
+    pricing_url: https://runwayml.com/pricing
+    buy_url: https://dev.runwayml.com/
+    buy_label: API console
+    api: { per_5s_video_usd: 0.50 }
+    subscription: { plan: Standard, usd_month: 15.00, units: "625 credits/mo (~50s)" }
+    third_party_apis:
+      - { provider: fal.ai Runway,    url: "https://fal.ai/models?search=runway",       per_5s_video_usd: 0.55, kind: partner, notes: "Hosted relay" }
+
+  - slug: kling/v2
+    provider: Kuaishou
+    name: Kling 2.0
+    category: video_short
+    quality: 4
+    tier: Strong
+    pricing_url: https://klingai.com
+    buy_url: https://klingai.com/dev
+    buy_label: API console
+    api: { per_5s_video_usd: 0.50 }
+    third_party_apis:
+      - { provider: fal.ai Kling 2,      url: https://fal.ai/models/fal-ai/kling-video,   per_5s_video_usd: 0.35, kind: partner, notes: "Hosted relay; cheaper than first-party" }
+      - { provider: Replicate Kling,     url: https://replicate.com/kwaivgi/kling-v2.0,   per_5s_video_usd: 0.50, kind: partner, notes: "Hosted relay" }
+      - { provider: BytePlus Kling,      url: https://www.byteplus.com/en/ai-ml/services, per_5s_video_usd: 0.50, kind: partner, notes: "Hosted relay" }
+      - { provider: PiAPI Kling,         url: https://piapi.ai/kling-api,                 per_5s_video_usd: 0.55, kind: wrapper, notes: "Account-pool wrapper" }
+      - { provider: GoAPI Kling,         url: https://goapi.ai/kling-api,                 per_5s_video_usd: 0.50, kind: wrapper, notes: "Account-pool wrapper" }
+
+  - slug: kling/v2-master
+    provider: Kuaishou
+    name: Kling 2.0 Master
+    category: video_short
+    quality: 5
+    tier: Frontier
+    pricing_url: https://klingai.com
+    buy_url: https://klingai.com/dev
+    buy_label: API console
+    notes: Highest-quality Kling tier
+    api: { per_5s_video_usd: 1.40 }
+    third_party_apis:
+      - { provider: fal.ai Kling Master, url: https://fal.ai/models/fal-ai/kling-video/v2/master, per_5s_video_usd: 1.40, kind: partner, notes: "Hosted relay" }
+      - { provider: Replicate Kling Master, url: https://replicate.com/kwaivgi/kling-v2.0-master, per_5s_video_usd: 1.40, kind: partner, notes: "Hosted relay" }
+      - { provider: PiAPI Kling Master,  url: https://piapi.ai/kling-api,                 per_5s_video_usd: 1.50, kind: wrapper, notes: "Account-pool wrapper" }
+
+  - slug: minimax/hailuo-02
+    provider: MiniMax
+    name: Hailuo 02
+    category: video_short
+    quality: 4
+    tier: Strong
+    pricing_url: https://hailuoai.video/pricing
+    buy_url: https://platform.minimaxi.com/
+    buy_label: API console
+    notes: Best-bang Chinese model, cheap
+    api: { per_5s_video_usd: 0.28 }
+    third_party_apis:
+      - { provider: fal.ai Hailuo,    url: https://fal.ai/models/fal-ai/minimax/hailuo-02, per_5s_video_usd: 0.28, kind: partner, notes: "Hosted relay" }
+      - { provider: Replicate Hailuo, url: https://replicate.com/minimax/hailuo-02,        per_5s_video_usd: 0.30, kind: partner, notes: "Hosted relay" }
+      - { provider: PiAPI Hailuo,     url: https://piapi.ai/minimax-api,                   per_5s_video_usd: 0.32, kind: wrapper, notes: "Account-pool wrapper" }
+
+  - slug: luma/dream-machine-1-6
+    provider: Luma
+    name: Dream Machine 1.6
+    category: video_short
+    quality: 3
+    tier: Strong
+    pricing_url: https://lumalabs.ai/dream-machine/pricing
+    buy_url: https://lumalabs.ai/api
+    buy_label: API console
+    api: { per_5s_video_usd: 0.35 }
+    subscription: { plan: Standard, usd_month: 29.99, units: "150 gens/mo" }
+    third_party_apis:
+      - { provider: fal.ai Luma DM,    url: https://fal.ai/models/fal-ai/luma-dream-machine, per_5s_video_usd: 0.35, kind: partner, notes: "Hosted relay" }
+      - { provider: Replicate Luma DM, url: https://replicate.com/luma/ray-2,                per_5s_video_usd: 0.36, kind: partner, notes: "Hosted relay" }
+
+  - slug: pika/2-0
+    provider: Pika
+    name: Pika 2.0
+    category: video_short
+    quality: 3
+    tier: Niche
+    pricing_url: https://pika.art/pricing
+    buy_url: https://pika.art/pricing
+    buy_label: Subscribe
+    notes: "Limited / waitlisted first-party API; most devs go through partners"
+    subscription: { plan: Standard, usd_month: 10.00, units: "700 credits/mo" }
+    third_party_apis:
+      - { provider: fal.ai Pika,    url: "https://fal.ai/models?search=pika", per_5s_video_usd: 0.30, kind: partner, notes: "Hosted relay" }
+      - { provider: PiAPI Pika,     url: https://piapi.ai/pika-api,         per_5s_video_usd: 0.35, kind: wrapper, notes: "Account-pool wrapper" }
+
+  - slug: alibaba/wan-2-2
+    provider: Alibaba
+    name: Wan 2.2
+    category: video_short
+    quality: 4
+    tier: Value
+    pricing_url: https://help.aliyun.com/document_detail/wan-pricing
+    buy_url: https://www.alibabacloud.com/product/dashscope
+    buy_label: DashScope
+    notes: Open weights, very cheap
+    api: { per_5s_video_usd: 0.25 }
+    third_party_apis:
+      - { provider: fal.ai Wan 2,    url: https://fal.ai/models/fal-ai/wan, per_5s_video_usd: 0.20, kind: partner, notes: "Hosted open-weights" }
+      - { provider: Replicate Wan 2, url: https://replicate.com/wavespeedai/wan-2.1, per_5s_video_usd: 0.20, kind: partner, notes: "Hosted open-weights" }
+
+  - slug: tencent/hunyuan-video
+    provider: Tencent
+    name: Hunyuan Video
+    category: video_short
+    quality: 4
+    tier: Value
+    pricing_url: https://replicate.com/tencent/hunyuan-video
+    buy_url: https://replicate.com/tencent/hunyuan-video
+    buy_label: Replicate API
+    notes: Open weights, 13B
+    api: { per_5s_video_usd: 0.25 }
+    third_party_apis:
+      - { provider: fal.ai Hunyuan,  url: https://fal.ai/models/fal-ai/hunyuan-video, per_5s_video_usd: 0.30, kind: partner, notes: "Hosted open-weights" }
+
+  - slug: genmo/mochi-1
+    provider: Genmo
+    name: Mochi 1
+    category: video_short
+    quality: 3
+    tier: Niche
+    pricing_url: https://replicate.com/genmoai/mochi-1
+    notes: Open weights
+    api: { per_5s_video_usd: 0.20 }
+
+  - slug: lightricks/ltx-video
+    provider: Lightricks
+    name: LTX-Video
+    category: video_short
+    quality: 3
+    tier: Value
+    pricing_url: https://replicate.com/lightricks/ltx-video
+    buy_url: https://replicate.com/lightricks/ltx-video
+    buy_label: Replicate API
+    notes: Real-time generation, fast
+    api: { per_5s_video_usd: 0.05 }
+    third_party_apis:
+      - { provider: fal.ai LTX,      url: https://fal.ai/models/fal-ai/ltx-video, per_5s_video_usd: 0.06, kind: partner, notes: "Hosted open-weights" }
+
+  - slug: vidu/q1
+    provider: Shengshu
+    name: Vidu Q1
+    category: video_short
+    quality: 3
+    tier: Niche
+    pricing_url: https://www.vidu.studio/pricing
+    api: { per_5s_video_usd: 0.40 }
+
+  - slug: google/veo-2
+    provider: Google
+    name: Veo 2
+    category: video_short
+    quality: 4
+    tier: Legacy
+    pricing_url: https://ai.google.dev/pricing
+    buy_url: https://aistudio.google.com/app/apikey
+    buy_label: AI Studio
+    notes: Previous-gen Google, still solid, no audio
+    api: { per_5s_video_usd: 1.75 }
+    third_party_apis:
+      - { provider: fal.ai Veo 2,     url: https://fal.ai/models/fal-ai/veo2,     per_5s_video_usd: 2.50, kind: partner, notes: "Hosted relay" }
+      - { provider: Replicate Veo 2,  url: https://replicate.com/google/veo-2,    per_5s_video_usd: 2.50, kind: partner, notes: "Hosted relay" }
+
+  - slug: pixverse/v5
+    provider: Pixverse
+    name: PixVerse V5
+    category: video_short
+    quality: 4
+    tier: Strong
+    pricing_url: https://pixverse.ai/pricing
+    buy_url: https://platform.pixverse.ai/
+    buy_label: API console
+    notes: Strong char + effects library
+    api: { per_5s_video_usd: 0.20 }
+    subscription: { plan: Standard, usd_month: 10.00, units: "1,000 credits/mo" }
+    third_party_apis:
+      - { provider: fal.ai PixVerse, url: https://fal.ai/models/fal-ai/pixverse, per_5s_video_usd: 0.20, kind: partner, notes: "Hosted relay" }
+      - { provider: PiAPI PixVerse,  url: https://piapi.ai/pixverse-api,         per_5s_video_usd: 0.25, kind: wrapper, notes: "Account-pool wrapper" }
+
+  - slug: adobe/firefly-video
+    provider: Adobe
+    name: Firefly Video
+    category: video_short
+    quality: 3
+    tier: Strong
+    pricing_url: https://www.adobe.com/products/firefly/plans.html
+    notes: Commercially safe, CC-bundled
+    subscription: { plan: Firefly Pro, usd_month: 29.99, units: "20 video credits/mo" }
+
+  - slug: higgsfield/higgsfield
+    provider: Higgsfield AI
+    name: Higgsfield
+    category: video_short
+    quality: 4
+    tier: Strong
+    pricing_url: https://higgsfield.ai/pricing
+    notes: Cinematic camera moves / VFX
+    subscription: { plan: Basic, usd_month: 9.00, units: "150 credits/mo" }
+
+  - slug: krea/video
+    provider: Krea
+    name: Krea Video
+    category: video_short
+    quality: 3
+    tier: Strong
+    pricing_url: https://www.krea.ai/pricing
+    notes: Realtime UI on top of multiple backends
+    subscription: { plan: Basic, usd_month: 10.00, units: "1,000 credits/mo" }
+
+  - slug: domoai/domoai
+    provider: Domo AI
+    name: Domo AI
+    category: video_short
+    quality: 3
+    tier: Niche
+    pricing_url: https://domoai.app/pricing
+    buy_url: https://domoai.app/pricing
+    buy_label: Subscribe
+    notes: "Subscription only — no first-party API; Discord-based"
+    subscription: { plan: Standard, usd_month: 9.99, units: "300 credits/mo" }
+    third_party_apis:
+      - { provider: PiAPI Domo,      url: https://piapi.ai/domo-api,    per_5s_video_usd: 0.20, kind: wrapper, notes: "Account-pool wrapper" }
+
+  - slug: stability/svd-1-1
+    provider: Stability AI
+    name: Stable Video Diffusion 1.1
+    category: video_short
+    quality: 2
+    tier: Legacy
+    pricing_url: https://replicate.com/stability-ai/stable-video-diffusion
+    notes: Image-to-video, open weights
+    api: { per_5s_video_usd: 0.045 }
+
+  - slug: thudm/cogvideox-5b
+    provider: THUDM
+    name: CogVideoX-5B
+    category: video_short
+    quality: 3
+    tier: Value
+    pricing_url: https://replicate.com/cuuupid/cogvideox-5b
+    notes: Open weights, decent quality, very cheap
+    api: { per_5s_video_usd: 0.10 }
+
+  - slug: hpcaitech/open-sora-2-0
+    provider: HPC-AI
+    name: Open-Sora 2.0
+    category: video_short
+    quality: 3
+    tier: Value
+    pricing_url: https://replicate.com/hpcai-tech/open-sora
+    notes: Open weights Sora-alike
+    api: { per_5s_video_usd: 0.10 }
+
+  - slug: hedra/character-3
+    provider: Hedra
+    name: Hedra Character-3
+    category: video_short
+    quality: 4
+    tier: Niche
+    pricing_url: https://www.hedra.com/pricing
+    notes: Talking character video from photo + audio
+    api: { per_5s_video_usd: 0.30 }
+    subscription: { plan: Basic, usd_month: 10.00, units: "400 credits/mo" }
+
+  - slug: bytedance/seedance-1-pro
+    provider: ByteDance
+    name: Seedance 1.0 Pro
+    category: video_short
+    quality: 5
+    tier: Frontier
+    released_at: 2026-Q1
+    pricing_url: https://replicate.com/bytedance/seedance-1-pro
+    buy_url: https://replicate.com/bytedance/seedance-1-pro
+    buy_label: Replicate API
+    notes: Strong realism + camera control; multi-shot
+    api: { per_5s_video_usd: 0.75 }
+
+  - slug: bytedance/seedance-1-lite
+    provider: ByteDance
+    name: Seedance 1.0 Lite
+    category: video_short
+    quality: 4
+    tier: Value
+    released_at: 2026-Q1
+    pricing_url: https://replicate.com/bytedance/seedance-1-lite
+    buy_url: https://replicate.com/bytedance/seedance-1-lite
+    buy_label: Replicate API
+    notes: Cheaper Seedance tier, slightly lower fidelity
+    api: { per_5s_video_usd: 0.18 }
+
+  # ================================================================
+  # VIDEO (long, ≥1 min)
+  # ================================================================
+  - slug: openai/sora-2-long
+    provider: OpenAI
+    name: Sora 2 (extended)
+    category: video_long
+    quality: 5
+    tier: Frontier
+    pricing_url: https://openai.com/sora
+    buy_url: https://platform.openai.com/settings/organization/billing
+    buy_label: API console
+    notes: Pro tier required for >5s
+    api: { per_minute_video_usd: 6.00 }
+    subscription: { plan: ChatGPT Pro, usd_month: 200.00, units: "Unlimited Sora extended" }
+    third_party_apis:
+      - { provider: fal.ai Sora 2 long,    url: https://fal.ai/models/fal-ai/sora-2,         per_minute_video_usd: 6.60, kind: partner, notes: "Hosted relay; pay per second" }
+      - { provider: Replicate Sora 2 long, url: https://replicate.com/openai/sora-2,         per_minute_video_usd: 6.60, kind: partner, notes: "Hosted relay" }
+      - { provider: PiAPI Sora,            url: https://piapi.ai/sora-api,                   per_minute_video_usd: 7.20, kind: wrapper, notes: "Account-pool wrapper" }
+
+  - slug: google/veo-3-long
+    provider: Google
+    name: Veo 3 (extended)
+    category: video_long
+    quality: 5
+    tier: Frontier
+    pricing_url: https://ai.google.dev/pricing
+    api: { per_minute_video_usd: 21.00 }
+
+  - slug: runway/gen-4-long
+    provider: Runway
+    name: Runway Gen-4 (extended)
+    category: video_long
+    quality: 4
+    tier: Strong
+    pricing_url: https://runwayml.com/pricing
+    buy_url: https://dev.runwayml.com/
+    buy_label: API console
+    subscription: { plan: Unlimited, usd_month: 95.00, units: "Unlimited relaxed gens" }
+    third_party_apis:
+      - { provider: fal.ai Runway long, url: "https://fal.ai/models?search=runway", per_minute_video_usd: 6.00, kind: partner, notes: "Hosted relay" }
+
+  - slug: kling/v2-long
+    provider: Kuaishou
+    name: Kling 2.0 (extended)
+    category: video_long
+    quality: 4
+    tier: Strong
+    pricing_url: https://klingai.com
+    api: { per_minute_video_usd: 6.00 }
+
+  - slug: minimax/hailuo-02-long
+    provider: MiniMax
+    name: Hailuo 02 (extended)
+    category: video_long
+    quality: 3
+    tier: Value
+    pricing_url: https://hailuoai.video/pricing
+    api: { per_minute_video_usd: 3.40 }
+
+  - slug: pixverse/v5-long
+    provider: Pixverse
+    name: PixVerse V5 (extended)
+    category: video_long
+    quality: 4
+    tier: Strong
+    pricing_url: https://pixverse.ai/pricing
+    buy_url: https://platform.pixverse.ai/
+    buy_label: API console
+    subscription: { plan: Pro, usd_month: 30.00, units: "5,000 credits/mo (~25 min)" }
+    third_party_apis:
+      - { provider: fal.ai PixVerse long, url: https://fal.ai/models/fal-ai/pixverse, per_minute_video_usd: 2.40, kind: partner, notes: "Hosted relay" }
+      - { provider: PiAPI PixVerse,       url: https://piapi.ai/pixverse-api,         per_minute_video_usd: 3.00, kind: wrapper, notes: "Account-pool wrapper" }
+
+  - slug: heygen/avatar-4
+    provider: HeyGen
+    name: HeyGen Avatar 4
+    category: video_long
+    quality: 4
+    tier: Strong
+    pricing_url: https://www.heygen.com/pricing
+    buy_url: https://app.heygen.com/settings?nav=API
+    buy_label: API console
+    notes: Avatar / spokesperson video from script
+    api: { per_minute_video_usd: 0.90 }
+    subscription: { plan: Creator, usd_month: 24.00, units: "15 minutes/mo" }
+    third_party_apis:
+      - { provider: Replicate HeyGen, url: https://replicate.com/heygen/avatar, per_minute_video_usd: 1.00, kind: partner, notes: "Hosted relay" }
+
+  - slug: synthesia/synthesia
+    provider: Synthesia
+    name: Synthesia
+    category: video_long
+    quality: 3
+    tier: Strong
+    pricing_url: https://www.synthesia.io/pricing
+    buy_url: https://www.synthesia.io/pricing
+    buy_label: Subscribe
+    notes: "Enterprise API is gated; most users go through subscription"
+    subscription: { plan: Starter, usd_month: 29.00, units: "10 minutes/mo" }
+
+  - slug: d-id/agents
+    provider: D-ID
+    name: D-ID Agents
+    category: video_long
+    quality: 3
+    tier: Niche
+    pricing_url: https://www.d-id.com/pricing/
+    notes: Talking photos / lipsync
+    api: { per_minute_video_usd: 0.30 }
+    subscription: { plan: Lite, usd_month: 5.99, units: "10 minutes/mo" }
+
+  - slug: argil/argil
+    provider: Argil
+    name: Argil
+    category: video_long
+    quality: 3
+    tier: Niche
+    pricing_url: https://www.argil.ai/pricing
+    notes: Personal avatar clones for social content
+    subscription: { plan: Starter, usd_month: 39.00, units: "10 videos/mo" }
+
+  - slug: tavus/replicas
+    provider: Tavus
+    name: Tavus Replica
+    category: video_long
+    quality: 3
+    tier: Niche
+    pricing_url: https://www.tavus.io/pricing
+    notes: Personalised 1:1 video at scale
+    api: { per_minute_video_usd: 5.00 }
+    subscription: { plan: Starter, usd_month: 99.00, units: "10 video minutes/mo" }
+
+  # ================================================================
+  # MUSIC
+  # ================================================================
+  - slug: suno/v5-5
+    provider: Suno
+    name: Suno v5.5
+    category: music
+    quality: 5
+    tier: Frontier
+    released_at: 2026-Q2
+    pricing_url: https://suno.com/pricing
+    buy_url: https://suno.com/pricing
+    buy_label: Subscribe
+    notes: "Subscription only — no official API. Wrappers exist via 3rd parties."
+    subscription: { plan: Pro, usd_month: 10.00, units: "2,500 songs/mo" }
+    third_party_apis:
+      - { provider: SunoAPI.com, url: https://sunoapi.com/pricing, per_song_usd: 0.10, kind: wrapper, notes: "Reverse-engineered; account-pool based" }
+      - { provider: PiAPI Suno,  url: https://piapi.ai/suno-api,   per_song_usd: 0.10, kind: wrapper, notes: "Reverse-engineered" }
+      - { provider: GoAPI Suno,  url: https://goapi.ai/suno-api,   per_song_usd: 0.08, kind: wrapper, notes: "Reverse-engineered" }
+      - { provider: MusicAPI.ai, url: https://musicapi.ai/,        per_song_usd: 0.09, kind: wrapper, notes: "Suno + Udio under one key" }
+
+  - slug: suno/v5
+    provider: Suno
+    name: Suno v5
+    category: music
+    quality: 4
+    tier: Strong
+    released_at: 2026-Q1
+    pricing_url: https://suno.com/pricing
+    buy_url: https://suno.com/pricing
+    buy_label: Subscribe
+    notes: "Subscription only — superseded by v5.5"
+    subscription: { plan: Pro, usd_month: 10.00, units: "2,500 songs/mo" }
+
+  - slug: suno/v5-5-premier
+    provider: Suno
+    name: Suno v5.5 (Premier)
+    category: music
+    quality: 5
+    tier: Frontier
+    pricing_url: https://suno.com/pricing
+    buy_url: https://suno.com/pricing
+    buy_label: Subscribe
+    notes: "Subscription only — no official API"
+    subscription: { plan: Premier, usd_month: 30.00, units: "10,000 songs/mo" }
+
+  - slug: suno/v4
+    provider: Suno
+    name: Suno v4
+    category: music
+    quality: 3
+    tier: Legacy
+    pricing_url: https://suno.com/pricing
+    buy_url: https://suno.com/pricing
+    buy_label: Subscribe
+    notes: "Previous-gen Suno; subscription only"
+    subscription: { plan: Pro (v4), usd_month: 10.00, units: "Earlier model" }
+
+  - slug: udio/v1-5
+    provider: Udio
+    name: Udio 1.5
+    category: music
+    quality: 4
+    tier: Strong
+    pricing_url: https://www.udio.com/pricing
+    buy_url: https://www.udio.com/pricing
+    buy_label: Subscribe
+    notes: "Subscription only — no official API. Wrappers exist via 3rd parties."
+    subscription: { plan: Standard, usd_month: 10.00, units: "1,200 songs/mo" }
+    third_party_apis:
+      - { provider: MusicAPI.ai, url: https://musicapi.ai/,        per_song_usd: 0.09, kind: wrapper, notes: "Suno + Udio under one key" }
+      - { provider: PiAPI Udio,  url: https://piapi.ai/udio-api,   per_song_usd: 0.10, kind: wrapper, notes: "Reverse-engineered" }
+      - { provider: GoAPI Udio,  url: https://goapi.ai/udio-api,   per_song_usd: 0.08, kind: wrapper, notes: "Reverse-engineered" }
+
+  - slug: elevenlabs/music
+    provider: ElevenLabs
+    name: ElevenLabs Music
+    category: music
+    quality: 4
+    tier: Strong
+    pricing_url: https://elevenlabs.io/pricing
+    api: { per_song_usd: 0.020 }
+    subscription: { plan: Creator, usd_month: 22.00, units: "~250 min music" }
+
+  - slug: stability/stable-audio-2-5
+    provider: Stability AI
+    name: Stable Audio 2.5
+    category: music
+    quality: 3
+    tier: Niche
+    pricing_url: https://www.stableaudio.com/pricing
+    notes: Instrumental, no lyrics
+    subscription: { plan: Pro, usd_month: 11.99, units: "750 gens/mo" }
+
+  - slug: riffusion/riffusion
+    provider: Riffusion
+    name: Riffusion
+    category: music
+    quality: 3
+    tier: Value
+    pricing_url: https://www.riffusion.com/pricing
+    subscription: { plan: Free, usd_month: 0.00, units: "Free with watermark" }
+
+  - slug: aiva/aiva
+    provider: AIVA
+    name: AIVA
+    category: music
+    quality: 3
+    tier: Niche
+    pricing_url: https://www.aiva.ai/pricing
+    notes: Composition / scoring focus
+    subscription: { plan: Standard, usd_month: 11.00, units: "15 downloads/mo" }
+
+  - slug: meta/musicgen-large
+    provider: Meta
+    name: MusicGen Large
+    category: music
+    quality: 2
+    tier: Legacy
+    pricing_url: https://replicate.com/meta/musicgen
+    notes: Open weights, research-tier quality
+    api: { per_song_usd: 0.005 }
+
+  - slug: google/lyria-2
+    provider: Google DeepMind
+    name: Lyria 2 (MusicFX)
+    category: music
+    quality: 4
+    tier: Strong
+    pricing_url: https://aitestkitchen.withgoogle.com/tools/music-fx
+    notes: Free preview via AI Test Kitchen; instrumental focus
+    subscription: { plan: Free preview, usd_month: 0.00, units: "Free, limited daily quota" }
+
+  - slug: stability/stable-audio-open
+    provider: Stability AI
+    name: Stable Audio Open
+    category: music
+    quality: 2
+    tier: Value
+    pricing_url: https://replicate.com/stability-ai/stable-audio-open-1.0
+    notes: Open weights, instrumental loops only
+    api: { per_song_usd: 0.005 }
+
+  - slug: sonauto/v2
+    provider: Sonauto
+    name: Sonauto v2
+    category: music
+    quality: 3
+    tier: Value
+    pricing_url: https://sonauto.ai/pricing
+    notes: Text-to-song with lyrics
+    api: { per_song_usd: 0.020 }
+    subscription: { plan: Pro, usd_month: 10.00, units: "1,000 songs/mo" }
+
+  - slug: mubert/api
+    provider: Mubert
+    name: Mubert
+    category: music
+    quality: 2
+    tier: Niche
+    pricing_url: https://mubert.com/render/pricing
+    notes: Loop-based, royalty-free streams
+    api: { per_song_usd: 0.010 }
+    subscription: { plan: Creator, usd_month: 14.00, units: "500 generations/mo" }
+
+  - slug: boomy/boomy
+    provider: Boomy
+    name: Boomy
+    category: music
+    quality: 2
+    tier: Niche
+    pricing_url: https://boomy.com/pricing
+    notes: Beginner-friendly composer
+    subscription: { plan: Premium, usd_month: 9.99, units: "Unlimited saves" }
+
+  - slug: soundful/soundful
+    provider: Soundful
+    name: Soundful
+    category: music
+    quality: 2
+    tier: Niche
+    pricing_url: https://soundful.com/pricing/
+    notes: Royalty-free background music
+    subscription: { plan: Music Maker, usd_month: 19.99, units: "10 downloads/mo" }
+
+  - slug: beatoven/beatoven
+    provider: Beatoven.ai
+    name: Beatoven
+    category: music
+    quality: 2
+    tier: Niche
+    pricing_url: https://www.beatoven.ai/pricing
+    notes: Mood-driven background scores
+    subscription: { plan: Pro, usd_month: 20.00, units: "~30 tracks/mo" }
+
+  - slug: loudly/loudly
+    provider: Loudly
+    name: Loudly AI Studio
+    category: music
+    quality: 2
+    tier: Niche
+    pricing_url: https://www.loudly.com/pricing
+    notes: Loop / soundbed generator
+    subscription: { plan: Pro, usd_month: 14.99, units: "Unlimited generations" }
+
+  - slug: splash/pro
+    provider: Splash
+    name: Splash Pro
+    category: music
+    quality: 2
+    tier: Niche
+    pricing_url: https://splashpro.com/pricing
+    notes: Vocal + beat creator on web
+    subscription: { plan: Pro, usd_month: 6.99, units: "Unlimited downloads" }

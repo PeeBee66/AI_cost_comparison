@@ -1,0 +1,23 @@
+services:
+  cost-dashboard:
+    build: .
+    container_name: cost-dashboard
+    restart: unless-stopped
+    ports:
+      - "8556:8556"
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+      - claude_auth:/root/.claude
+    networks:
+      - cost-net
+    stdin_open: true   # needed for one-time `claude` login flow
+    tty: true
+
+volumes:
+  claude_auth:
+
+networks:
+  cost-net:
+    driver: bridge

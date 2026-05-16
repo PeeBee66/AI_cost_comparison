@@ -1,0 +1,14 @@
+# Force LF line endings on files that will be executed inside the Linux container.
+# Without this, Windows clients will check out CRLF and shell scripts break.
+
+*.sh         text eol=lf
+*.yml        text eol=lf
+*.yaml       text eol=lf
+Dockerfile   text eol=lf
+*.py         text eol=lf
+*.html       text eol=lf
+*.css        text eol=lf
+*.js         text eol=lf
+.env.example text eol=lf
+.gitignore   text eol=lf
+.gitattributes text eol=lf

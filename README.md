@@ -47,13 +47,24 @@ Pricing pages move constantly. Across ~100 models from ~40 providers, manually m
 
 ## Quick start
 
+> **Prerequisites**: [Docker Desktop](https://www.docker.com/products/docker-desktop/) (Windows / macOS) or Docker Engine + Compose v2 (Linux). On Windows, run the commands below in **PowerShell** or **Git Bash**.
+
 ### 1. Clone + configure
 
+**Linux / macOS / Git Bash:**
 ```bash
-git clone https://github.com/<you>/AI_cost_comparison.git
+git clone https://github.com/PeeBee66/AI_cost_comparison.git
 cd AI_cost_comparison
 cp .env.example .env
 # edit .env — at minimum point FIRECRAWL_URL at your Firecrawl instance
+```
+
+**Windows PowerShell:**
+```powershell
+git clone https://github.com/PeeBee66/AI_cost_comparison.git
+cd AI_cost_comparison
+Copy-Item .env.example .env
+notepad .env   # set FIRECRAWL_URL
 ```
 
 ### 2. Build the image

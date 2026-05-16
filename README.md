@@ -3,6 +3,8 @@
 A self-hosted dashboard that tracks the price of ~100 commercial AI models — chat / code, image, video (short and long), music — side-by-side, with **API pricing vs subscription pricing**, **quality ratings**, and **third-party API wrappers** (fal.ai, Replicate, PiAPI, etc.) called out separately from official endpoints.
 
 Runs in a single Docker container on port `8556`. Uses **Claude Code CLI** (your existing Claude Pro / Max subscription — no API key) to extract live pricing from each provider's pricing page via a self-hosted **Firecrawl** instance.
+<img width="1982" height="1448" alt="image" src="https://github.com/user-attachments/assets/75320cb7-a5b1-4069-b7e2-d71dc098a7c6" />
+
 
 ---
 

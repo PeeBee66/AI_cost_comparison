@@ -40,7 +40,7 @@ Pricing pages move constantly. Across ~100 models from ~40 providers, manually m
 ## Stack
 
 - **Backend**: Python 3.12, FastAPI, SQLAlchemy 2.0, SQLite
-- **Frontend**: Jinja2 templates, Tailwind via CDN, vanilla JS (no build step)
+- **Frontend**: Jinja2 templates, Tailwind CSS (compiled to a local stylesheet at image-build time — no runtime CDN dependency), vanilla JS
 - **Scraping**: self-hosted [Firecrawl](https://github.com/mendableai/firecrawl) → returns clean markdown
 - **Extraction**: [Claude Code CLI](https://github.com/anthropics/claude-code) (`claude -p "..."`) — uses your Claude.ai subscription, no Anthropic API key required
 - **Container**: Docker + Docker Compose

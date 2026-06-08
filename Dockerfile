@@ -24,6 +24,14 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY app ./app
+COPY tailwind.config.js tailwind.input.css ./
+
+# Compile Tailwind into a local stylesheet so the dashboard has NO runtime
+# dependency on cdn.tailwindcss.com (which can be null-routed by LAN DNS filters).
+RUN npm install -g tailwindcss@3.4.17 \
+    && tailwindcss -i ./tailwind.input.css -o ./app/static/tailwind.css --minify \
+    && npm uninstall -g tailwindcss \
+    && npm cache clean --force
 
 RUN mkdir -p /app/data /app/data/backups /root/.claude
 

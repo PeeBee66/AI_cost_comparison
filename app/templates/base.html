@@ -4,24 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}Cost Dashboard{% endblock %}</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50:  '#eef9ff',
-              100: '#d9f0ff',
-              500: '#3b82f6',
-              600: '#2563eb',
-              700: '#1d4ed8',
-            },
-          }
-        }
-      }
-    }
-  </script>
+  <!-- Tailwind is compiled into /static/tailwind.css at image-build time (see Dockerfile).
+       No external CDN at runtime, so LAN DNS filters can't break the styling. -->
+  <link rel="stylesheet" href="/static/tailwind.css">
   <link rel="stylesheet" href="/static/app.css">
 </head>
 <body class="min-h-screen">
